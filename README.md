@@ -1,1 +1,1 @@
-# Data_analytics_projects
+# Cointab_Data_analyst_challenge
