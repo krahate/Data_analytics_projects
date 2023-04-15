@@ -10,15 +10,13 @@ Please understand the below mentioned real-life scenario and try to solve the ch
 You are a data analyst and have a large ecommerce company in India (let’s call it X) as a client. X gets a few thousand orders via their website on a daily basis and they have to deliver them as fast as they can. For delivering the goods ordered by the customers, X has tied up with multiple courier companies in India who charge them some amount per delivery.
 
 The charges are dependent upon two factors:
+
 ●	Weight of the product
 
 ●	Distance between the warehouse (pickup location) and customer’s delivery address (destination location)
+On an average, the delivery charges are Rs. 100 per shipment. So if X ships 1,00,000 orders per month, they have to pay approximately Rs. 1 crore to the courier companies on a monthly basis as charges.As the amount that X has to pay to the courier companies is very high, they want to verify if the charges levied by their partners per Order are correct.
 
-On an average, the delivery charges are Rs. 100 per shipment. So if X ships 1,00,000 orders per month, they have to pay approximately Rs. 1 crore to the courier companies on a monthly basis as charges.
-
-As the amount that X has to pay to the courier companies is very high, they want to verify if the charges levied by their partners per Order are correct.
-
-Input Data
+# Input Data
 
 Left Hand Side (LHS) Data (X’s internal data spread across three reports)
 
@@ -37,6 +35,7 @@ For example:
 ●	Warehouse pincode to All India pincode mapping (this should be used to figure out delivery zone (a/b/c/d/e) and during analysis compare against one reported by courier company in their CSV invoice per Order ID
 
 RHS Data (courier company invoice in CSV file)
+
 ●	Invoice in CSV file mentioning AWB Number (courier company’s own internal ID), Order ID (company X’s order ID), weight of shipment, warehouse pickup pincode, customer delivery pincode, zone of delivery, charges per shipment, type of shipment
 
 ●	Courier charges rate card at weight slab and pincode level. If the invoice mentions “Forward charges” then only forward charges (“fwd”) should be applicable as per zone and fixed & additional weights based on weight slabs. If the invoice mentions “Forward and rto charges” then forward charges (“fwd”) and RTO charges (“rto”) should be applicable as per zone and fixed & additional weights based on weight slabs.
@@ -47,6 +46,7 @@ RHS Data (courier company invoice in CSV file)
 
 # Output Data 1
 Create a resultant CSV/Excel file with the following columns:
+
 ●	Order ID
 
 ●	AWB Number
