@@ -21,6 +21,7 @@ Input Data
 
 Left Hand Side (LHS) Data (X’s internal data spread across three reports)
 ●	Website order report which will list Order IDs and various products (SKUs) part of each order. Order ID is common identifier between X’s order report and courier company invoice
+
 ●	SKU master with gross weight of each product. This should be used to calculate total weight of each order and during analysis compare against one reported by courier company in their CSV invoice per Order ID. The courier company calculates weight in slabs of 0.5 KG multiples, so first you have to figure out the total weight of the shipment and then figure out applicable weight slabs.
 
 For example:
@@ -35,7 +36,9 @@ For example:
 
 RHS Data (courier company invoice in CSV file)
 ●	Invoice in CSV file mentioning AWB Number (courier company’s own internal ID), Order ID (company X’s order ID), weight of shipment, warehouse pickup pincode, customer delivery pincode, zone of delivery, charges per shipment, type of shipment
+
 ●	Courier charges rate card at weight slab and pincode level. If the invoice mentions “Forward charges” then only forward charges (“fwd”) should be applicable as per zone and fixed & additional weights based on weight slabs. If the invoice mentions “Forward and rto charges” then forward charges (“fwd”) and RTO charges (“rto”) should be applicable as per zone and fixed & additional weights based on weight slabs.
+
 ●	For the first 0.5 KG, “fixed” rate as per the slab is applicable. For each additional 0.5 KG, “additional” weight in the same proportion is applicable. Total charges will be “fixed” + “total additional” if any
 
 
@@ -43,15 +46,25 @@ RHS Data (courier company invoice in CSV file)
 # Output Data 1
 Create a resultant CSV/Excel file with the following columns:
 ●	Order ID
+
 ●	AWB Number
+
 ●	Total weight as per X (KG)
+
 ●	Weight slab as per X (KG)
+
 ●	Total weight as per Courier Company (KG)
+
 ●	Weight slab charged by Courier Company (KG)
+
 ●	Delivery Zone as per X
+
 ●	Delivery Zone charged by Courier Company
+
 ●	Expected Charge as per X (Rs.)
+
 ●	Charges Billed by Courier Company (Rs.)
+
 ●	Difference Between Expected Charges and Billed Charges (Rs.)
 
 
